@@ -11,14 +11,6 @@ public class Enemy : MonoBehaviour
         transform.Translate(transform.forward* constantSpeed* Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.tag == "Bird")
-        {
-            Destroy(collision.gameObject);
-        }
-    }
-
     void OnTriggerExit(Collider other)
     {
         if (other.transform.tag == "Wall")
