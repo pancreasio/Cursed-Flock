@@ -12,6 +12,12 @@ public class BoidManager : MonoBehaviour
     public List<GameObject> threatList;
     public List<GameObject> foodList;
     public List<GameObject> waypointList;
+    public FoodSpawner foodSpawner;
+
+    void Start()
+    {
+        foodList = foodSpawner.spawnedFoodList;
+    }
 
     void Update()
     {

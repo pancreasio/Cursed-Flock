@@ -7,6 +7,7 @@ TagManager:
   - Bird
   - Wall
   - Waypoint
+  - Food
   layers:
   - Default
   - TransparentFX
