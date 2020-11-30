@@ -13,6 +13,11 @@ public class AlignmentBehaviour : BoidBehaviour
             if (neighbor == targetBoid)
                 continue;
 
+            if (targetBoid == null || neighbor == null)
+            {
+                return base.GetBehaviourForce(targetBoid, neighborBoids, threatList, foodList, nextWaypointPosition);
+            }
+
             if ((targetBoid.transform.position - neighbor.transform.position).magnitude < effectiveRange)
             {
                 resultantVelocity += neighbor.velocity;

@@ -14,6 +14,11 @@ public class SeparationBehaviour : BoidBehaviour
             if (neighbor == targetBoid)
                 continue;
 
+            if (targetBoid == null || neighbor == null)
+            {
+                return base.GetBehaviourForce(targetBoid, neighborBoids, threatList, foodList, nextWaypointPosition);
+            }
+
             Vector3 separationVector = targetBoid.transform.position - neighbor.transform.position;
 
             if (separationVector.magnitude < effectiveRange)

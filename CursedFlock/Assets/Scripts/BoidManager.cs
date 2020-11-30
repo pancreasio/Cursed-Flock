@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class BoidManager : MonoBehaviour
 {
-    public GameObject BoidPrefab;
-    public Transform BoidSpawnPoint;
+    public GameObject boidPrefab;
+    public GameObject EnemyPrefab;
+
+    public GameObject cageCenter;
+
+    public Transform boidSpawnPoint;
+
+    public int initialBoids;
 
     public List<Boid> activeBoidList;
-    public List<BoidBehaviour> ActiveBoidBehaviours;
+    public List<BoidBehaviour> activeBoidBehaviours;
     public List<GameObject> threatList;
     public List<GameObject> foodList;
     public List<GameObject> waypointList;
@@ -17,6 +23,10 @@ public class BoidManager : MonoBehaviour
     void Start()
     {
         foodList = foodSpawner.spawnedFoodList;
+        for (int i = 0; i < initialBoids; i++)
+        {
+            SpawnBoid();
+        }
     }
 
     void Update()
@@ -25,12 +35,23 @@ public class BoidManager : MonoBehaviour
         {
             SpawnBoid();
         }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            SpawnEnemy();
+        }
     }
 
     void SpawnBoid()
     {
-        Boid boidInstance = Instantiate(BoidPrefab, BoidSpawnPoint.position, Quaternion.identity).GetComponent<Boid>();
+        Boid boidInstance = Instantiate(boidPrefab, boidSpawnPoint.position, Quaternion.identity).GetComponent<Boid>();
         activeBoidList.Add(boidInstance);
         boidInstance.parentManager = this;
+    }
+
+    void SpawnEnemy()
+    {
+        GameObject enemyInstance = Instantiate(EnemyPrefab, boidSpawnPoint.position, Random.rotation);
+        threatList.Add(enemyInstance);
     }
 }

@@ -75,9 +75,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ef34aae20fdb44da2e979f4de15c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentManager: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
   initialSpeed: 6
   maxSpeed: 10
   rotationSpeed: 5
+  FoodToTransform: 5
 --- !u!1001 &3873505417876124872
 PrefabInstance:
   m_ObjectHideFlags: 0

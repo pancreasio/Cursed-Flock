@@ -5,7 +5,7 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
     public static FoodSpawner.FoodAction OnDestroyed;
-    void OnTriggerEnter(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if(other.transform.tag == "Wall")
             Destroy(this.gameObject);
