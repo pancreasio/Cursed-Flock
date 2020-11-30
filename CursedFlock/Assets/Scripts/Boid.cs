@@ -6,7 +6,7 @@ public class Boid : MonoBehaviour
 {
     public BoidManager parentManager;
 
-    private Vector3 velocity;
+    public Vector3 velocity;
     private Vector3 nextWaypointPosition;
     public float initialSpeed;
     public float maxSpeed;
@@ -32,6 +32,7 @@ public class Boid : MonoBehaviour
     {
         if (other.transform.tag == "Wall")
         {
+            //transform.position = 2 * other.transform.position - transform.position;
             velocity *= -1;
         }
     }
