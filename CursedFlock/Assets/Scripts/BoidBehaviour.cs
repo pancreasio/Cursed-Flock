@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class BoidBehaviour : MonoBehaviour
 {
-    [Range(0, 1)]
+    [Range(0, 20)]
     public float weight;
 
-    public enum BehaviourType
-    {
-        separation, allignment, cohesion, evasion, seeker, follower
-    }
+    public float effectiveRange;
 
-    public BehaviourType behaviour;
-
-    public virtual Vector3 GetBehaviourForce(Boid targetBoid, List<Boid> neighbourBoids)
+    public virtual Vector3 GetBehaviourForce(Boid targetBoid, List<Boid> neighborBoids, List<GameObject> threatList, List<GameObject> foodList, Vector3 nextWaypointPosition)
     {
         return Vector3.zero;
     }
